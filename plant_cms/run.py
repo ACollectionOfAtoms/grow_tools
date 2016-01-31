@@ -42,8 +42,10 @@ def submit_form():
         g.db.execute('insert into plants (plant_name, sci_name) values (?, ?)',
                       [form.plant_name.data, form.sci_name.data])
         g.db.commit()
+        cur = g.db.execute('select plant_name, sci_name from plants order by id desc')
+        entries = [dict(plant_name=row[0], sci_name=[1]) for row in cur.fetchall()]
         flash('Plant data saved')
-        return render_template('success.html')
+        return render_template('success.html',plants=entries)
 
 class PlantForm(Form):
     plant_name = TextField('Plant Name', [validators.Length(min=2)])

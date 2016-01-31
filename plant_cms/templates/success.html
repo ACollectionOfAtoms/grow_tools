@@ -1,4 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-Worked.
-</html>
+<h1> Plant added.</h1>
+<h2> Here are the plants so far </h2>
+<ul class=plants>
+  {% for plant in plants %}
+    <li><h2>{{ plant.plant_name }}</h2>
+  {% else %}
+    <li>No plants have been added.</li>
+  {% endfor %}
+</ul>
