@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Plant Profiler">
+    <meta name="author" content="David Adam Hernandez">
+    <link rel="icon" href="">
+
+    <title>Grow CMS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Where the css is-->
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
+  </head>
+<body>
+  <div class="container">
+    <div class="row" id="form-container">
+      {% from "_formhelpers.html" import render_field %}
+      <form method=post action="/submit">
+        <dl>
+          {{ render_field(form.plant_name) }}
+          {{ render_field(form.sci_name) }}
+        </dl>
+        <p><input type=submit value=Submit>
+      </form>
+      <!-- <form>
+        <div class="form-group">
+            <label for="inputEmail">Plant Name</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Scientific Name</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form> -->
+    </div>
+  </div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!--jQuery UI-->
+<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<!--d3-->
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>
